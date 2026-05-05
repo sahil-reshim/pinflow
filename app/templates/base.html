@@ -4,27 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}PinFlow AI{% endblock %}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
   {% block head %}{% endblock %}
 </head>
+
 <body>
-  <!-- Toast container -->
-  <div id="toast-container" aria-live="polite"></div>
 
-  {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      <script>
-        window.__flashMessages = {{ messages | tojson }};
-      </script>
-    {% endif %}
-  {% endwith %}
+<!-- Global Loader -->
+<div id="global-loader" class="global-loader hidden">
+  <div class="loader-ring"></div>
+</div>
 
-  {% block body %}{% endblock %}
+<!-- Toast -->
+<div id="toast-container"></div>
 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-  {% block scripts %}{% endblock %}
+{% block body %}{% endblock %}
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% block scripts %}{% endblock %}
+
 </body>
 </html>
