@@ -444,3 +444,27 @@ document.addEventListener("DOMContentLoaded", () => {
   initPost();
   initBoardRefresh();
 });
+
+
+// Global loader
+function showLoader() {
+  document.getElementById("global-loader").classList.remove("hidden");
+}
+function hideLoader() {
+  document.getElementById("global-loader").classList.add("hidden");
+}
+
+// Button click animation
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.style.transform = "scale(0.96)";
+    setTimeout(() => btn.style.transform = "", 120);
+  });
+});
+
+// Progress update
+function updateProgress(step) {
+  const fill = document.getElementById("progress-fill");
+  if (!fill) return;
+  fill.style.width = (step * 25) + "%";
+}
