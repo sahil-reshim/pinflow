@@ -726,3 +726,60 @@ select.input-field {
   .image-grid { grid-template-columns: repeat(3, 1fr); gap: .5rem; }
   .history-grid { grid-template-columns: 1fr 1fr; }
 }
+
+
+/* Loader */
+.global-loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-ring {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #333;
+  border-top: 3px solid #e60023;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+
+/* Password */
+.password-group {
+  position: relative;
+}
+.password-group button {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: none;
+  color: #aaa;
+}
+
+/* Strength */
+.strength-bar {
+  height: 4px;
+  background: #222;
+  margin-top: 5px;
+}
+#strength-fill {
+  height: 100%;
+  width: 0%;
+  background: #e60023;
+}
+
+/* Progress */
+.progress-bar {
+  height: 4px;
+  background: #222;
+  margin-bottom: 1rem;
+}
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #e60023;
+  transition: .3s;
+}
